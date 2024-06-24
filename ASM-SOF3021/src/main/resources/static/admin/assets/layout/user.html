@@ -1,0 +1,148 @@
+<div class="row">
+    <div class="col-md-12 m-b-30">
+        <!-- begin page title -->
+        <div class="d-block d-lg-flex flex-nowrap align-items-center">
+            <div class="page-title mr-4 pr-4 border-right">
+                <h1>User Manager</h1>
+            </div>
+
+            <div class="ml-auto d-flex align-items-center secondary-menu text-center">
+
+            </div>
+        </div>
+        <!-- end page title -->
+    </div>
+</div>
+<!-- end row -->
+<!-- begin row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics">
+            <div class="card-header">
+                <div class="card-heading">
+                    <h4 class="card-title">Edit Account</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <label>
+                            <img ng-src="/images/account/{{account.photo}}" class="logo" alt="">
+                        </label>
+                    </div>
+                    <div class="col-md-8">
+                        <form name="frmAccount">
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input name="username" ng-model="account.username" required type="text"
+                                    class="form-control">
+                                <div ng-show="frmAccount.username.$invalid" class="badge badge-danger m-2">Id not null</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Fullname</label>
+                                <input name="fullname" ng-model="account.fullname" required type="text"
+                                    class="form-control">
+                                <div ng-show="frmAccount.fullname.$invalid" class="badge badge-danger m-2">Id not null</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input name="email" ng-model="account.email" required type="email" class="form-control">
+                                <div ng-show="frmAccount.email.$invalid" class="badge badge-danger m-2">Id not null</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input name="password" ng-model="account.password" required type="password"
+                                    class="form-control">
+                                <div ng-show="frmAccount.password.$invalid" class="badge badge-danger m-2">Id not null</div>
+                            </div>
+                            <div class="form-group">
+                                <label class="mr-2">Activate</label>
+                                <div class="form-check-inline">
+                                    <input ng-model="account.activated" class="form-check-input" type="radio"
+                                        name="activated" id="gridRadios1" ng-value="true"
+                                        ng-checked="account.activated">
+                                    <label class="form-check-label" for="gridRadios1">
+                                        True
+                                    </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input ng-model="account.activated" class="form-check-input" type="radio"
+                                        name="activated" id="gridRadios2" ng-value="false"
+                                        ng-checked="account.activated">
+                                    <label class="form-check-label" for="gridRadios2">
+                                        False
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Photo</label>
+                                <input type="file" accept="image/*"
+                                    onchange="angular.element(this).scope().imageChanged(this.files)">
+                            </div>
+                            <button ng-disabled="frmAccount.$invalid || chon == true" ng-click="create()"
+                                class="btn btn-primary">Create</button>
+                            <button ng-disabled="frmAccount.$invalid || frmAccount.$pristine || chon == false"
+                                ng-click="update(account.username)" class="btn btn-info">Update</button>
+                            <button ng-click="reset()" class="btn btn-secondary">Reset</button>
+                            <button ng-disabled="chon == false" ng-click="delete(account.username)"
+                                class="btn btn-dark">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="card card-statistics">
+            <div class="card-header">
+                <div class="card-heading">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h4 class="card-title">Account Table</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <form class="justify-content-end">
+                                <div class="form-group">
+                                    <input oninput="angular.element(this).scope().search(this.value)" type="text"
+                                        class="form-control" placeholder="Search">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Fullname</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Active</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="a in accounts">
+                                <th scope="row">{{$index+1}}</th>
+                                <td>{{a.username}}</td>
+                                <td>{{a.fullname}}</td>
+                                <td>{{a.email}}</td>
+                                <td>{{a.activated?'Yes':'No'}}</td>
+                                <td class="text-right">
+                                    <button ng-click="edit(a.username)" class="btn btn-primary">Edit</button>
+                                    <button ng-click="delete(a.username)" class="btn btn-dark">Delete</button>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

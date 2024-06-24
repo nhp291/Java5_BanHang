@@ -1,0 +1,53 @@
+.logo{
+	object-fit: cover;
+	width: 100%;
+	height: 250px;	
+}
+.imgProduct{
+	object-fit: cover;
+	width: 100%;
+	height: 400px;	
+}
+.btn.disabled, .btn:disabled {
+    opacity: 0.2;
+}
+.img-thumbnail{
+    height: 70px;
+    max-width: 95%;
+}
+.table-scroll{
+  display: block;
+}
+
+.table-scroll thead{
+  position:relative;
+  display: block;
+}
+
+.table-scroll tbody{
+  /* Position */
+  display: block; 
+  position:relative;
+  overflow-y:scroll;
+}
+
+.table-scroll tr{
+  display:flex;
+}
+
+.table-scroll td,.table-scroll th{
+  flex-basis:50%;
+  display: block;
+}
+
+/* Other options */
+
+.body-half-screen{
+  max-height: 40vh;
+}
+.max-lines {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 600px;
+}

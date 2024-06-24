@@ -1,0 +1,15 @@
+.product{
+	object-fit: cover;
+	width: 100%;
+	height: 400px;	
+}
+.detail-img {
+	object-fit: cover;
+	width: 100%;
+	height: 700px;	
+}
+.product-rcm{
+	object-fit: cover;
+	width: 100%;
+	height: 320px;
+}

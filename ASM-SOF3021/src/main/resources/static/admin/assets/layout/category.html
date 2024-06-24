@@ -1,0 +1,97 @@
+<div class="row">
+    <div class="col-md-12 m-b-30">
+        <!-- begin page title -->
+        <div class="d-block d-lg-flex flex-nowrap align-items-center">
+            <div class="page-title mr-4 pr-4 border-right">
+                <h1>Category Manager</h1>
+            </div>
+
+            <div class="ml-auto d-flex align-items-center secondary-menu text-center">
+
+            </div>
+        </div>
+        <!-- end page title -->
+    </div>
+</div>
+<!-- end row -->
+<!-- begin row -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-statistics">
+            <div class="card-header">
+                <div class="card-heading">
+                    <h4 class="card-title">Edit Category</h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form name="frmCategory">
+                            <div class="form-group">
+                                <label>Category ID</label>
+                                <input name="id" ng-model="cate.id" required ng-maxlength="4" type="text" class="form-control">
+                                <div ng-show="frmCategory.id.$invalid" class="badge badge-danger m-2">Id not null & less than 4 character</div>
+                            </div>
+                            <div class="form-group">
+                                <label>Category Name</label>
+                                <input name="name" ng-model="cate.name" required type="text" class="form-control">
+                                <div ng-show="frmCategory.name.$invalid" class="badge badge-danger m-2">Id not null</div>
+                            </div>
+                            <button ng-disabled="frmCategory.$invalid || chon == true" ng-click="create()" class="btn btn-primary">Create</button>
+                            <button ng-disabled="frmCategory.$invalid || frmCategory.$pristine || chon == false" ng-click="update(cate.id)" class="btn btn-info">Update</button>
+                            <button ng-click="reset()" class="btn btn-default">Reset</button>
+                            <button ng-disabled="chon == false" ng-click="delete(cate.id)" class="btn btn-dark">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 ">
+        <div class="card card-statistics">
+            <div class="card-header">
+                <div class="card-heading">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <h4 class="card-title">Category Table</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <form class="justify-content-end">
+                                <div class="form-group">
+                                    <input oninput="angular.element(this).scope().search(this.value)" type="text" class="form-control" placeholder="Search">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Category Id</th>
+                            <th scope="col">Category Name</th>
+                            <th scope="col"></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="c in cates">
+                            <th scope="row">{{$index +1}}</th>
+                            <td>{{c.id}}</td>
+                            <td>{{c.name}}</td>
+                            <td class="text-right">
+                                <button ng-click="edit(c.id)" class="btn btn-primary">Edit</button>
+                                <button ng-click="delete(c.id)" class="btn btn-dark">Delete</button>
+                            </td>
+                          </tr>                                                  
+                        </tbody>
+                      </table>                                                                                            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

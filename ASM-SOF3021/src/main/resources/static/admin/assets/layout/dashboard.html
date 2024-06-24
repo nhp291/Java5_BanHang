@@ -1,0 +1,138 @@
+<div class="row">
+	<div class="col-md-12 m-b-30">
+		<!-- begin page title -->
+		<div class="d-block d-lg-flex flex-nowrap align-items-center">
+			<div class="page-title mr-4 pr-4 border-right">
+				<h1>Dashboard</h1>
+			</div>
+
+			<div
+				class="ml-auto d-flex align-items-center secondary-menu text-center">
+
+			</div>
+		</div>
+		<!-- end page title -->
+	</div>
+</div>
+<!-- end row -->
+<!-- begin row -->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="card card-statistics">
+			<div class="row no-gutters">
+				<div class="col-xxl-3 col-lg-6">
+					<div class="p-20 border-lg-right border-bottom border-xxl-bottom-0">
+						<div class="d-flex m-b-10">
+							<p class="mb-0 font-regular text-muted font-weight-bold">Total
+								customers</p>
+							<a class="mb-0 ml-auto font-weight-bold" href="#"><i
+								class="ti ti-more-alt"></i> </a>
+						</div>
+						<div class="d-block d-sm-flex h-100 align-items-center">
+							<div
+								class="statistics mt-3 mt-sm-0 ml-sm-auto text-center text-sm-right">
+								<h3 class="mb-0">
+									<i class="icon-arrow-up-circle"></i> {{total.totalCustomer}}
+								</h3>
+								<p>Customers</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xxl-3 col-lg-6">
+					<div
+						class="p-20 border-xxl-right border-bottom border-xxl-bottom-0">
+						<div class="d-flex m-b-10">
+							<p class="mb-0 font-regular text-muted font-weight-bold">Total
+								Cost</p>
+							<a class="mb-0 ml-auto font-weight-bold" href="#"><i
+								class="ti ti-more-alt"></i> </a>
+						</div>
+						<div class="d-block d-sm-flex h-100 align-items-center">
+							<div
+								class="statistics mt-3 mt-sm-0 ml-sm-auto text-center text-sm-right">
+								<h3 class="mb-0">
+									<i class="icon-arrow-up-circle"></i> {{total.totalCost |
+									number: 0}}$
+								</h3>
+								<p>This month</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xxl-3 col-lg-6">
+					<div class="p-20 border-lg-right border-bottom border-lg-bottom-0">
+						<div class="d-flex m-b-10">
+							<p class="mb-0 font-regular text-muted font-weight-bold">Total
+								Orders</p>
+							<a class="mb-0 ml-auto font-weight-bold" href="#"><i
+								class="ti ti-more-alt"></i> </a>
+						</div>
+						<div class="d-block d-sm-flex h-100 align-items-center">
+							<div
+								class="statistics mt-3 mt-sm-0 ml-sm-auto text-center text-sm-right">
+								<h3 class="mb-0">
+									<i class="icon-arrow-up-circle"></i>{{total.totalOrder}}
+								</h3>
+								<p>This month</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xxl-7 m-b-30">
+		<div class="card card-statistics h-100 mb-0 apexchart-tool-force-top">
+			<div class="card-header d-flex justify-content-between">
+				<div class="card-heading">
+					<h4 class="card-title">Cost Report This Month</h4>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-6 col-xs-6 col-lg-3">
+						<div class="row mb-2 pb-3 align-items-end">
+							<div class="col">
+								<p>Costs Today</p>
+								<h3 class="tex-dark mb-0">{{costToday | number : 0}}$</h3>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-6 col-xs-6 col-lg-3">
+						<div class="row mb-2 pb-3 align-items-end">
+							<div class="col">
+								<p>Orders Today</p>
+								<h3 class="tex-dark mb-0">{{orderToday}}</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12 px-0">
+						<div class="apexchart-wrapper p-inherit">
+							<canvas id="costChart"></canvas>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xxl-5 m-b-30">
+		<div class="card card-statistics h-100 mb-0">
+			<div class="card-header d-flex justify-content-between">
+				<div class="card-heading">
+					<h4 class="card-title">Best seller</h4>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="apexchart-wrapper p-inherit">
+					<canvas id="bestSeller"></canvas>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
